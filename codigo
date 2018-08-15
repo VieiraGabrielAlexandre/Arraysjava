@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+public class BigZ {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int tamanhoZ = sc.nextInt();
+		
+		List<Character> Z = new ArrayList<Character>();
+		String alf = "abcdefghijklmnopqrstuvxwyz";
+				
+		for(char c: alf.toCharArray() ){
+			Z.add(c);
+		}
+		int letra = 26;
+		int t = 0;
+		int posmeio = tamanhoZ-1;
+		for(int i = 0; i <= tamanhoZ; i++){
+			for(int j = 0; j <= tamanhoZ; j++){
+				if(i == 0 || i == tamanhoZ){
+					if (t < letra){
+						System.out.print(" "+Z.get(t));
+						t++;
+					}else{
+						t = 0;
+						System.out.print(" "+Z.get(t));
+					}
+				}else if(j == posmeio){
+					if (t < letra){
+						System.out.print(" "+Z.get(t));
+						posmeio--;
+						t++;
+					}else{
+						t = 0;
+						System.out.print(" "+Z.get(t));
+						posmeio--;
+					}
+				}else{
+					System.out.print("  ");
+				}
+				
+			}
+			System.out.print("\n");
+		}
+	}
+}
